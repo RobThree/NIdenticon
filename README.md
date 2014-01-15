@@ -58,6 +58,12 @@ public IdenticonGenerator(string algorithm, int defaultWidth, int defaultHeight,
 
 This allows you to specify defaults only once (using the ctor) or for each generated Identicon (passing parameters to the `Create()` methods.
 
+#Notes
+
 Do note that the `Create()` method and its overloads all return a `Bitmap` object; you have to take care of storing it, sending it to the browser or whatever you need to do. Also note that you might want to `Dispose()` the returned Identicon when no longer needed.
+
+Also note that NIdenticon will round the image-dimensions DOWN to the nearest available size when the dimensions aren't exactly divisible by the horizontal/vertical blocks. Dimensions where width/horizontalblocks and height/verticalblocks are a multiple of oneanother work best (for example: for a width of 400 px you can use 2, 4, and 5 horizontal blocks but 6 will result in an image with a width of 396).
+
+# Example
 
 A test-application is provided for you so you can explore the options and what the result will be.
