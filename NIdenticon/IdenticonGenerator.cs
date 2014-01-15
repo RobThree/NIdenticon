@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Net;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -81,6 +82,29 @@ namespace Devcorner.NIdenticon
                 throw new ArgumentNullException("encoding");
 
             return this.Create(encoding.GetBytes(value), width, height, backgroundcolor, blockshorizontal, blocksvertical);
+        }
+
+        public Bitmap Create(IPAddress ipaddress)
+        {
+            return this.Create(ipaddress, this.DefaultWidth, this.DefaultHeight);
+        }
+
+        public Bitmap Create(IPAddress ipaddress, int width, int height)
+        {
+            return this.Create(ipaddress, width, height, this.DefaultBackgroundColor);
+        }
+
+        public Bitmap Create(IPAddress ipaddress, int width, int height, Color backgroundcolor)
+        {
+            return this.Create(ipaddress, width, height, backgroundcolor, this.DefaultBlocksHorizontal, this.DefaultBlocksVertical);
+        }
+
+        public Bitmap Create(IPAddress ipaddress, int width, int height, Color backgroundcolor, int blockshorizontal, int blocksvertical)
+        {
+            if (ipaddress == null)
+                throw new ArgumentNullException("ipaddress");
+
+            return this.Create(ipaddress.GetAddressBytes(), width, height, backgroundcolor, blockshorizontal, blocksvertical);
         }
 
         public Bitmap Create(byte[] value)
