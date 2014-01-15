@@ -21,7 +21,7 @@ namespace Devcorner.NIdenticon
     /// </summary>
     public class IdenticonGenerator
     {
-        public string Algorithm { get; set; }
+        public string DefaultAlgorithm { get; set; }
         public int DefaultWidth { get; set; }
         public int DefaultHeight { get; set; }
         public int DefaultBlocksHorizontal { get; set; }
@@ -47,7 +47,7 @@ namespace Devcorner.NIdenticon
 
         public IdenticonGenerator(string algorithm, int defaultWidth, int defaultHeight, Color defaultBackgroundColor, int defaultBlocksHorizontal, int defaultBlocksVertical, Encoding encoding)
         {
-            this.Algorithm = algorithm;
+            this.DefaultAlgorithm = algorithm;
             this.DefaultWidth = defaultWidth;
             this.DefaultHeight = defaultHeight;
             this.DefaultBackgroundColor = defaultBackgroundColor;
@@ -124,9 +124,9 @@ namespace Devcorner.NIdenticon
 
         public Bitmap Create(byte[] value, int width, int height, Color backgroundcolor, int blockshorizontal, int blocksvertical)
         {
-            var ha = HashAlgorithm.Create(this.Algorithm);
+            var ha = HashAlgorithm.Create(this.DefaultAlgorithm);
             if (ha == null)
-                throw new ArgumentOutOfRangeException(string.Format("Unknown algorithm '{0}'", this.Algorithm));
+                throw new ArgumentOutOfRangeException(string.Format("Unknown algorithm '{0}'", this.DefaultAlgorithm));
 
             if (blockshorizontal < 1)
                 throw new ArgumentOutOfRangeException("blockshorizontal");
