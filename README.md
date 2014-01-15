@@ -60,4 +60,4 @@ This allows you to specify defaults only once (using the ctor) or for each gener
 
 Do note that the `Create()` method and its overloads all return a `Bitmap` object; you have to take care of storing it, sending it to the browser or whatever you need to do. Also note that you might want to `Dispose()` the returned Identicon when no longer needed.
 
-A [test-application](NIdenticon/TestApp) is provided for you so you can explore the options and what the result will be.
+A test-application is provided for you so you can explore the options and what the result will be.
