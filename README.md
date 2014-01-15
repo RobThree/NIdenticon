@@ -11,13 +11,13 @@ NIdenticon is a library (available as [NuGet package](https://www.nuget.org/pack
 The most basic example is as follows:
 ```c#
 var g = new IdenticonGenerator();
-g.Create("foo");
+var mybitmap = g.Create("foo");
 ````
 
 This will create an Identicon based on the string `foo` with all other options default; another example is:
 ```c#
 var g = new IdenticonGenerator();
-g.Create(HttpContext.Current.Request.UserHostAddress);
+var mybitmap = g.Create(HttpContext.Current.Request.UserHostAddress);
 ````
 
 This creates an Identicon based on the IP-address of a remote host. The Identicon can be created with the following options:
