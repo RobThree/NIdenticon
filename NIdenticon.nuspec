@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NIdenticon</id>
+    <title>NIdenticon</title>
+    <version>1.0.0.0</version>
+    <authors>RobIII</authors>
+    <owners>RobIII</owners>
+    <projectUrl>https://github.com/RobThree/NIdenticon</projectUrl>
+    <iconUrl>http://riii.nl/nidenticonlogo</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>NIdenticon is a library for creating simple Identicons.</description>
+    <summary>
+      Provides classes and methods for creating Identicons.
+    </summary>
+    <releaseNotes>
+      * Initial release
+    </releaseNotes>
+    <tags>identicon</tags>
+  </metadata>
+  <files>
+    <file src="NIdenticon\bin\Release\NIdenticon.dll" target="lib\net35-client" />
+    <file src="NIdenticon\bin\Release\NIdenticon.XML" target="lib\net35-client" />
+  </files>
+</package>
