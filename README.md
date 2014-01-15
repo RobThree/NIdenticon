@@ -4,7 +4,7 @@
 > "*An Identicon is a visual representation of a hash value, usually of an IP address, that serves to identify a user of a computer system as a form of avatar while protecting the users' privacy. The original Identicon was a 9-block graphic, and the representation has been extended to other graphic forms by third parties.*"
 – [Wikipedia](http://en.wikipedia.org/wiki/Identicon)
 
-NIdenticon is a library (available as NuGet package) that helps creating simple Identicons but is flexible enough to allow for tweaking the output to your heart's content.
+NIdenticon is a library (available as [NuGet package](https://www.nuget.org/packages/NIdenticon)) that helps creating simple Identicons but is flexible enough to allow for tweaking the output to your heart's content.
 
 ## Usage
 
