@@ -6,6 +6,12 @@
 
 NIdenticon is a library (available as [NuGet package](https://www.nuget.org/packages/NIdenticon)) that helps creating simple Identicons but is flexible enough to allow for tweaking the output to your heart's content.
 
+This project was inspired by:
+ * [Github – Identicons!](https://github.com/blog/1586-identicons)
+ * [David Hamp-Gonsalves – Generating Identicons](http://www.davidhampgonsalves.com/Identicons)
+ * [Phil Haack – Identicons as Graphical Digital Fingerprints](http://haacked.com/archive/2007/01/22/Identicons_as_Visual_Fingerprints.aspx)
+ * [Jeff Atwood – Identicons for .NET](http://www.codinghorror.com/blog/2007/01/identicons-for-net.html)
+
 ## Usage
 
 The most basic example is as follows:
