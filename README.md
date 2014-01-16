@@ -76,25 +76,25 @@ Below are some example images:
 
 Result | Algorithm | Dimensions | Value | Type | Background | Blocks
 --- | --- | --- | --- | --- | --- | ---
-![MD5 Identicon](examples/MD5_Identicon.png) | `MD5` | 50x50 | Identicon | string | White | 5x5
-![SHA256 Identicon](examples/SHA256_Identicon.png) | `SHA256` | 50x50 | Identicon | string | White | 5x5
-![SHA512 Identicon](examples/SHA512_Identicon.png) | `SHA512` | 50x50 | Identicon | string | White | 5x5
-![MD5 RobIII](examples/MD5_RobIII.png) | `MD5` | 50x50 | RobIII | string | White | 5x5
-![RipeMD160 RobIII](examples/RIPEMD160_RobIII.png) | `RipeMD160` | 50x50 | RobIII | string | White | 5x5
-![SHA1 RobIII](examples/SHA1_RobIII.png) | `SHA1` | 50x50 | RobIII | string | White | 5x5
-![SHA256 RobIII](examples/SHA256_RobIII.png) | `SHA256` | 50x50 | RobIII | string | White | 5x5
-![SHA384 RobIII](examples/SHA384_RobIII.png) | `SHA384` | 50x50 | RobIII | string | White | 5x5
-![SHA512 RobIII](examples/SHA512_RobIII.png) | `SHA512` | 50x50 | RobIII | string | White | 5x5
-![SHA512 RobIII](examples/SHA512_RobIII_t.png) | `SHA512` | 50x50 | RobIII | string | Transparent | 5x5
-![SHA256 192.168.1.0](examples/SHA256_192.168.1.0_ipaddress.png) | `SHA256` | 50x50 | 192.168.1.0 | IPAddress | White | 5x5
-![SHA256 192.168.1.10](examples/SHA256_192.168.1.10_ipaddress.png) | `SHA256` | 50x50 | 192.168.1.10 | IPAddress | White | 5x5
-![SHA256 192.168.1.0](examples/SHA256_192.168.1.0_string.png) | `SHA256` | 50x50 | 192.168.1.0 | string | Black | 5x5
-![SHA256 192.168.1.10](examples/SHA256_192.168.1.10_string.png) | `SHA256` | 50x50 | 192.168.1.10 | string | Black | 5x5
-![SHA1 Foobar](examples/SHA1_Foobar_l.png) | `SHA1` | 50x50 | Foobar | string | Transparent | 5x5
-![SHA1 FooBar](examples/SHA1_FooBar_u.png) | `SHA1` | 50x50 | FooBar | string | Transparent | 5x5
-![MD5 foo_bar](examples/MD5_foo_bar_3.png) | `MD5` | 60x60 | foo_bar | string | Transparent | 3x3
-![MD5 foo_bar](examples/MD5_foo_bar_4.png) | `MD5` | 60x60 | foo_bar | string | Transparent | 4x4
-![MD5 foo_bar](examples/MD5_foo_bar_6.png) | `MD5` | 60x60 | foo_bar | string | Transparent | 6x6
-![MD5 foo_bar](examples/MD5_foo_bar_12.png) | `MD5` | 60x60 | foo_bar | string | Transparent | 12x12
-![MD5 foo_bar](examples/MD5_foo_bar_3_6.png) | `MD5` | 60x60 | foo_bar | string | Transparent | 3x6
-![MD5 foo_bar](examples/MD5_foo_bar_6_3.png) | `MD5` | 60x60 | foo_bar | string | Transparent | 6x3
+![MD5 Identicon](examples/MD5_Identicon.png) | `MD5` | 50x50 | `Identicon` | string | White | 5x5
+![SHA256 Identicon](examples/SHA256_Identicon.png) | `SHA256` | 50x50 | `Identicon` | string | White | 5x5
+![SHA512 Identicon](examples/SHA512_Identicon.png) | `SHA512` | 50x50 | `Identicon` | string | White | 5x5
+![MD5 RobIII](examples/MD5_RobIII.png) | `MD5` | 50x50 | `RobIII` | string | White | 5x5
+![RipeMD160 RobIII](examples/RIPEMD160_RobIII.png) | `RipeMD160` | 50x50 | `RobIII` | string | White | 5x5
+![SHA1 RobIII](examples/SHA1_RobIII.png) | `SHA1` | 50x50 | `RobIII` | string | White | 5x5
+![SHA256 RobIII](examples/SHA256_RobIII.png) | `SHA256` | 50x50 | `RobIII` | string | White | 5x5
+![SHA384 RobIII](examples/SHA384_RobIII.png) | `SHA384` | 50x50 | `RobIII` | string | White | 5x5
+![SHA512 RobIII](examples/SHA512_RobIII.png) | `SHA512` | 50x50 | `RobIII` | string | White | 5x5
+![SHA512 RobIII](examples/SHA512_RobIII_t.png) | `SHA512` | 50x50 | `RobIII` | string | Transparent | 5x5
+![SHA256 192.168.1.0](examples/SHA256_192.168.1.0_ipaddress.png) | `SHA256` | 50x50 | `192.168.1.0` | IPAddress | White | 5x5
+![SHA256 192.168.1.10](examples/SHA256_192.168.1.10_ipaddress.png) | `SHA256` | 50x50 | `192.168.1.10` | IPAddress | White | 5x5
+![SHA256 192.168.1.0](examples/SHA256_192.168.1.0_string.png) | `SHA256` | 50x50 | `192.168.1.0` | string | Black | 5x5
+![SHA256 192.168.1.10](examples/SHA256_192.168.1.10_string.png) | `SHA256` | 50x50 | `192.168.1.10` | string | Black | 5x5
+![SHA1 Foobar](examples/SHA1_Foobar_l.png) | `SHA1` | 50x50 | `Foobar` | string | Transparent | 5x5
+![SHA1 FooBar](examples/SHA1_FooBar_u.png) | `SHA1` | 50x50 | `FooBar` | string | Transparent | 5x5
+![MD5 foo_bar](examples/MD5_foo_bar_3.png) | `MD5` | 60x60 | `foo_bar` | string | Transparent | 3x3
+![MD5 foo_bar](examples/MD5_foo_bar_4.png) | `MD5` | 60x60 | `foo_bar` | string | Transparent | 4x4
+![MD5 foo_bar](examples/MD5_foo_bar_6.png) | `MD5` | 60x60 | `foo_bar` | string | Transparent | 6x6
+![MD5 foo_bar](examples/MD5_foo_bar_12.png) | `MD5` | 60x60 | `foo_bar` | string | Transparent | 12x12
+![MD5 foo_bar](examples/MD5_foo_bar_3_6.png) | `MD5` | 60x60 | `foo_bar` | string | Transparent | 3x6
+![MD5 foo_bar](examples/MD5_foo_bar_6_3.png) | `MD5` | 60x60 | `foo_bar` | string | Transparent | 6x3
