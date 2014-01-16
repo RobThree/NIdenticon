@@ -67,4 +67,4 @@ Also note that NIdenticon will round the image-dimensions DOWN to the nearest av
 
 # Example
 
-A test-application is provided for you so you can explore the options and what the result will be.
+A simple Windows Forms application and sample ASP.Net MVC website is provided for you so you can explore the options and quickly see what the result will look like.
