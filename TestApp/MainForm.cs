@@ -1,6 +1,7 @@
 ﻿using Devcorner.NIdenticon;
 using Devcorner.NIdenticon.BrushGenerators;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace TestApp
@@ -20,11 +21,15 @@ namespace TestApp
                 var g = new IdenticonGenerator(AlgorithmBox.Text);
                 ResultBox.Image = g.Create(
                     ValueBox.Text,
-                    (int)WidthBox.Value,
-                    (int)HeightBox.Value,
+                    new Size(
+                        (int)WidthBox.Value,
+                        (int)HeightBox.Value
+                    ),
                     BackgroundColorBox.BackColor,
-                    (int)HorizontalBox.Value,
-                    (int)VerticalBox.Value,
+                    new Size(
+                        (int)HorizontalBox.Value,
+                        (int)VerticalBox.Value
+                    ),
                     g.DefaultEncoding,
                     IdenticonGenerator.ExtendedBlockGeneratorsConfig,
                     new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(ValueBox.Text))
