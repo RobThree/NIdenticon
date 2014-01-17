@@ -8,7 +8,7 @@ namespace Devcorner.NIdenticon.BrushGenerators
         {
             unchecked
             {
-                return new SolidBrush(Color.FromArgb((int)seed));
+                return new SolidBrush(Color.FromArgb(255, Color.FromArgb((int)seed)));
             }
         }
     }
