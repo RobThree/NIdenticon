@@ -123,4 +123,4 @@ Result | Algorithm | Value | Blockgens | Background | Blocks | Brush
 ![](examples/ex22.png) | `SHA256` | `Identicon` | Extended | Transparent | 6x6 | Static
 ![](examples/ex23.png) | `SHA384` | `Identicon` | Custom<br><sub>(Triangles only)</sub> | Transparent | 6x6 | Random
 ![](examples/ex24.png) | `SHA384` | `Identicon` | Custom<br><sub>(Pie-slices only)</sub> | Transparent | 6x6 | Random
-![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br><sub>(Triangle + Pie in 4:1)</sub> | Transparent | 6x6 | Static
+![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br><sub>(Rectangle + Pie in 4:1)</sub> | Transparent | 6x6 | Static
