@@ -6,6 +6,8 @@ using System.IO;
 using System.Drawing.Imaging;
 using System.Net;
 using Devcorner.NIdenticon.BrushGenerators;
+using Devcorner.NIdenticon.BlockGenerators;
+using System.Text;
 
 namespace NIdenticonTests
 {
@@ -145,6 +147,21 @@ namespace NIdenticonTests
                 CreateGenString("SHA256", i, true, false)
                     .Create(f, new Size(120, 120), Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex22.png"), ImageFormat.Png);
+
+                doc.WriteLine("![](examples/ex23.png) | `SHA384` | `" + i + "` | Custom<br>(Triangles only) | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA384", i, false, false)
+                    .Create(f, new Size(120, 120), Color.Transparent, b, Encoding.UTF8, new IBlockGenerator[] { new TriangleGenerator(1) })
+                    .Save(Path.Combine(outputpath, "ex23.png"), ImageFormat.Png);
+
+                doc.WriteLine("![](examples/ex24.png) | `SHA384` | `" + i + "` | Custom<br>(Pie-slices only) | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA384", i, false, false)
+                    .Create(f, new Size(120, 120), Color.Transparent, b, Encoding.UTF8, new IBlockGenerator[] { new PieGenerator(1) })
+                    .Save(Path.Combine(outputpath, "ex24.png"), ImageFormat.Png);
+
+                doc.WriteLine("![](examples/ex25.png) | `SHA384` | `" + i + "` | Custom<br>(Triangle + Pie in 4:1) | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA384", i, false, true)
+                    .Create(f, new Size(120, 120), Color.Transparent, b, Encoding.UTF8, new IBlockGenerator[] { new RectangleGenerator(4), new PieGenerator(1) })
+                    .Save(Path.Combine(outputpath, "ex25.png"), ImageFormat.Png);
             }
         }
 
