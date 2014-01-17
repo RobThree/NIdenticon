@@ -3,7 +3,7 @@
   <metadata>
     <id>NIdenticon</id>
     <title>NIdenticon</title>
-    <version>1.0.0.0</version>
+    <version>1.1.0.0</version>
     <authors>RobIII</authors>
     <owners>RobIII</owners>
     <projectUrl>https://github.com/RobThree/NIdenticon</projectUrl>
@@ -14,7 +14,8 @@
       Provides classes and methods for creating Identicons.
     </summary>
     <releaseNotes>
-      * Initial release
+      * You can now specify block- and colorgenerator(s) (even your OWN) and the IdenticonGenerator is now able to generate lot more shapes out of the box.
+      * Simplified APi a bit, added more overloads, consolidated width/height and horizontalblocks/verticalblocks to Size objects
     </releaseNotes>
     <tags>identicon</tags>
   </metadata>
