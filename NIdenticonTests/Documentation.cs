@@ -158,7 +158,7 @@ namespace NIdenticonTests
                     .Create(f, new Size(120, 120), Color.Transparent, b, Encoding.UTF8, new IBlockGenerator[] { new PieGenerator(1) })
                     .Save(Path.Combine(outputpath, "ex24.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](examples/ex25.png) | `SHA384` | `" + i + "` | Custom<br>(Triangle + Pie in 4:1) | Transparent | " + b.Width + "x" + b.Height + " | Statics");
+                doc.WriteLine("![](examples/ex25.png) | `SHA384` | `" + i + "` | Custom<br>(Triangle + Pie in 4:1) | Transparent | " + b.Width + "x" + b.Height + " | Static");
                 CreateGenString("SHA384", i, false, true)
                     .Create(f, new Size(120, 120), Color.Transparent, b, Encoding.UTF8, new IBlockGenerator[] { new RectangleGenerator(4), new PieGenerator(1) })
                     .Save(Path.Combine(outputpath, "ex25.png"), ImageFormat.Png);
