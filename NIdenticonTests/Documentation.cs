@@ -28,139 +28,141 @@ namespace NIdenticonTests
 
             using (var doc = new StreamWriter(File.Create(Path.Combine("output", "doc.md"))))
             {
-                doc.WriteLine("Result | Algorithm | Value | Blockgens | Background | Blocks");
-                doc.WriteLine("--- | --- | --- | --- | --- | ---");
+                doc.WriteLine("Result | Algorithm | Value | Blockgens | Background | Blocks | Brush");
+                doc.WriteLine("--- | --- | --- | --- | --- | --- | ---");
 
-                doc.WriteLine("![](ex00.png) | `MD5` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height);
-                CreateGenString("MD5", i, false)
+                doc.WriteLine("![](examples/ex00.png) | `MD5` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("MD5", i, false, true)
                     .Create(i, s, Color.White, b)
                     .Save(Path.Combine(outputpath, "ex00.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex01.png) | `MD5` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height);
-                CreateGenString("MD5", i, true)
+                doc.WriteLine("![](examples/ex01.png) | `MD5` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("MD5", i, true, true)
                     .Create(i, s, Color.White, b)
                     .Save(Path.Combine(outputpath, "ex01.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex02.png) | `SHA256` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA256", i, true)
+                doc.WriteLine("![](examples/ex02.png) | `SHA256` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("SHA256", i, true, true)
                     .Create(i, s, Color.White, b)
                     .Save(Path.Combine(outputpath, "ex02.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex03.png) | `SHA512` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA512", i, true)
+                doc.WriteLine("![](examples/ex03.png) | `SHA512` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("SHA512", i, true, true)
                     .Create(i, s, Color.White, b)
                     .Save(Path.Combine(outputpath, "ex03.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex04.png) | `MD5` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("MD5", n, true)
+                doc.WriteLine("![](examples/ex04.png) | `MD5` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("MD5", n, true, false)
                     .Create(n, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex04.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex05.png) | `RipeMD160` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("RipeMD160", n, true)
+                doc.WriteLine("![](examples/ex05.png) | `RipeMD160` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("RipeMD160", n, true, false)
                     .Create(n, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex05.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex06.png) | `SHA1` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA1", n, true)
+                doc.WriteLine("![](examples/ex06.png) | `SHA1` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA1", n, true, false)
                     .Create(n, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex06.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex07.png) | `SHA256` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA256", n, true)
+                doc.WriteLine("![](examples/ex07.png) | `SHA256` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA256", n, true, false)
                     .Create(n, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex07.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex08.png) | `SHA384` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA384", n, true)
+                doc.WriteLine("![](examples/ex08.png) | `SHA384` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA384", n, true, false)
                     .Create(n, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex08.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex09.png) | `SHA512` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA512", n, true)
+                doc.WriteLine("![](examples/ex09.png) | `SHA512` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA512", n, true, false)
                     .Create(n, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex09.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex10.png) | `SHA256` | `" + ip1.ToString() + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenIp("SHA256", ip1, true)
+                doc.WriteLine("![](examples/ex10.png) | `SHA256` | `" + ip1.ToString() + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenIp("SHA256", ip1, true, true)
                     .Create(ip1, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex10.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex11.png) | `SHA256` | `" + ip2.ToString() + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenIp("SHA256", ip2, true)
+                doc.WriteLine("![](examples/ex11.png) | `SHA256` | `" + ip2.ToString() + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenIp("SHA256", ip2, true, true)
                     .Create(ip2, s, Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex11.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex12.png) | `SHA256` | `" + ip1.ToString() + "` | Extended | Black | " + b.Width + "x" + b.Height);
-                CreateGenIp("SHA256", ip1, true)
+                doc.WriteLine("![](examples/ex12.png) | `SHA256` | `" + ip1.ToString() + "` | Extended | Black | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenIp("SHA256", ip1, true, true)
                     .Create(ip1, s, Color.Black, b)
                     .Save(Path.Combine(outputpath, "ex12.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex13.png) | `SHA256` | `" + ip2.ToString() + "` | Extended | Black | " + b.Width + "x" + b.Height);
-                CreateGenIp("SHA256", ip2, true)
+                doc.WriteLine("![](examples/ex13.png) | `SHA256` | `" + ip2.ToString() + "` | Extended | Black | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenIp("SHA256", ip2, true, true)
                     .Create(ip2, s, Color.Black, b)
                     .Save(Path.Combine(outputpath, "ex13.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex14.png) | `SHA1` | `Foobar` | Extended | Black | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA1", "Foobar", true)
+                doc.WriteLine("![](examples/ex14.png) | `SHA1` | `Foobar` | Extended | Black | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("SHA1", "Foobar", true, true)
                     .Create("Foobar", s, Color.Black, b)
                     .Save(Path.Combine(outputpath, "ex14.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex15.png) | `SHA1` | `FooBar` | Extended | Black | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA1", "FooBar", true)
+                doc.WriteLine("![](examples/ex15.png) | `SHA1` | `FooBar` | Extended | Black | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("SHA1", "FooBar", true, true)
                     .Create("FooBar", s, Color.Black, b)
                     .Save(Path.Combine(outputpath, "ex15.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex16.png) | `MD5` | `" + f + "` | Extended | Transparent | 4x4");
-                CreateGenString("MD5", f, true)
+                doc.WriteLine("![](examples/ex16.png) | `MD5` | `" + f + "` | Extended | Transparent | 4x4 | Static");
+                CreateGenString("MD5", f, true, true)
                     .Create(f, s, Color.Transparent, new Size(4, 4))
                     .Save(Path.Combine(outputpath, "ex16.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex17.png) | `MD5` | `" + f + "` | Extended | Transparent | 6x6");
-                CreateGenString("MD5", f, true)
+                doc.WriteLine("![](examples/ex17.png) | `MD5` | `" + f + "` | Extended | Transparent | 6x6 | Static");
+                CreateGenString("MD5", f, true, true)
                     .Create(f, s, Color.Transparent, new Size(6, 6))
                     .Save(Path.Combine(outputpath, "ex17.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex18.png) | `MD5` | `" + f + "` | Extended | Transparent | 12x12");
-                CreateGenString("MD5", f, true)
+                doc.WriteLine("![](examples/ex18.png) | `MD5` | `" + f + "` | Extended | Transparent | 12x12 | Static");
+                CreateGenString("MD5", f, true, true)
                     .Create(f, s, Color.Transparent, new Size(12, 12))
                     .Save(Path.Combine(outputpath, "ex18.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex19.png) | `MD5` | `" + f + "` | Default | Transparent | 4x6");
-                CreateGenString("MD5", f, false)
+                doc.WriteLine("![](examples/ex19.png) | `MD5` | `" + f + "` | Default | Transparent | 4x6 | Static");
+                CreateGenString("MD5", f, false, true)
                     .Create(f, s, Color.Transparent, new Size(4, 6))
                     .Save(Path.Combine(outputpath, "ex19.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex20.png) | `MD5` | `" + f + "` | Default | Transparent | 6x4");
-                CreateGenString("MD5", f, false)
+                doc.WriteLine("![](examples/ex20.png) | `MD5` | `" + f + "` | Default | Transparent | 6x4 | Static");
+                CreateGenString("MD5", f, false, true)
                     .Create(f, s, Color.Transparent, new Size(6, 4))
                     .Save(Path.Combine(outputpath, "ex20.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex21.png) | `SHA256` | `" + i + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA256", i, true)
+                doc.WriteLine("![](examples/ex21.png) | `SHA256` | `" + i + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA256", i, true, false)
                     .Create(f, new Size(90, 90), Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex21.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](ex22.png) | `SHA256` | `" + i + "` | Extended | Transparent | " + b.Width + "x" + b.Height);
-                CreateGenString("SHA256", i, true)
+                doc.WriteLine("![](examples/ex22.png) | `SHA256` | `" + i + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
+                CreateGenString("SHA256", i, true, false)
                     .Create(f, new Size(120, 120), Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex22.png"), ImageFormat.Png);
             }
         }
 
-        private IdenticonGenerator CreateGenString(string alg, string s, bool useextended)
+        private IdenticonGenerator CreateGenString(string alg, string s, bool useextended, bool usestatic)
         {
             var g = new IdenticonGenerator(alg);
-            g.DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(s));
+            if (usestatic)
+                g.DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(s));
             if (useextended)
                 g.DefaultBlockGenerators = IdenticonGenerator.ExtendedBlockGeneratorsConfig;
             return g;
         }
 
-        private IdenticonGenerator CreateGenIp(string alg, IPAddress ip, bool useextended)
+        private IdenticonGenerator CreateGenIp(string alg, IPAddress ip, bool useextended, bool usestatic)
         {
             var g = new IdenticonGenerator(alg);
-            g.DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromIPAddress(ip));
+            if (usestatic)
+                g.DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromIPAddress(ip));
             if (useextended)
                 g.DefaultBlockGenerators = IdenticonGenerator.ExtendedBlockGeneratorsConfig;
             return g;
