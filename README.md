@@ -29,47 +29,64 @@ var mybitmap = g.Create(HttpContext.Current.Request.UserHostAddress);
 This creates an Identicon based on the IP-address of a remote host. The Identicon can be created with the following options:
 
 * Dimensions (width, height **default**: 400, 400)
-* Number of blocks, or "pixels" (horizontal, vertical **default**: 5, 5)
+* Number of blocks, or "pixels" (horizontal, vertical **default**: 6, 6)
 * Hash algorithm (**default**: `SHA5120`)
 * Background color (**default**: `Transparent`)
 * Even the default string-encoding used can be specified (**default**: UTF-8)
 
-This library only contains one class, the `IdenticonGenerator`, with only one method, `Create()`, but which is rich in overloads. These are:
+This library only contains one the `IdenticonGenerator` that has only one method: `Create()`, but which is rich in overloads. These are:
 ```c#
-public Bitmap Create(byte[] value)
-public Bitmap Create(byte[] value, int width, int height)
-public Bitmap Create(byte[] value, int width, int height, Color backgroundcolor)
-public Bitmap Create(byte[] value, int width, int height, Color backgroundcolor, int blockshorizontal, int blocksvertical)
-public Bitmap Create(IPAddress ipaddress)
-public Bitmap Create(IPAddress ipaddress, int width, int height)
-public Bitmap Create(IPAddress ipaddress, int width, int height, Color backgroundcolor)
-public Bitmap Create(IPAddress ipaddress, int width, int height, Color backgroundcolor, int blockshorizontal, int blocksvertical)
-public Bitmap Create(string value)
-public Bitmap Create(string value, int width, int height)
-public Bitmap Create(string value, int width, int height, Color backgroundcolor)
-public Bitmap Create(string value, int width, int height, Color backgroundcolor, int blockshorizontal, int blocksvertical)
-public Bitmap Create(string value, int width, int height, Color backgroundcolor, int blockshorizontal, int blocksvertical, Encoding encoding)
+Bitmap Create(byte[] value)
+Bitmap Create(byte[] value, Size size)
+Bitmap Create(byte[] value, Size size, Color backgroundcolor)
+Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks)
+Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockgenerators)
+Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator)
+Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator, string algorithm)
+Bitmap Create(IPAddress ipaddress)
+Bitmap Create(IPAddress ipaddress, Size size)
+Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor)
+Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks)
+Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockgenerators)
+Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator)
+Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator, string algorithm)
+Bitmap Create(string value)
+Bitmap Create(string value, Size size)
+Bitmap Create(string value, Size size, Color backgroundcolor)
+Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks)
+Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding)
+Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding, IBlockGenerator[] blockgenerators)
+Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator)
+Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator, string algorithm)
 ````
 
 Parameters not specified will resort to the `DefaultXXX`-properties which can be specified when instantiating an `IdenticonGenerator`; the `IdenticonGenerator`'s constructor is also rich in overloads:
 ```c#
 public IdenticonGenerator()
 public IdenticonGenerator(string algorithm)
-public IdenticonGenerator(string algorithm, int defaultWidth, int defaultHeight)
-public IdenticonGenerator(string algorithm, int defaultWidth, int defaultHeight, Color defaultBackgroundColor)
-public IdenticonGenerator(string algorithm, int defaultWidth, int defaultHeight, Color defaultBackgroundColor, int defaultBlocksHorizontal, int defaultBlocksVertical)
-public IdenticonGenerator(string algorithm, int defaultWidth, int defaultHeight, Color defaultBackgroundColor, int defaultBlocksHorizontal, int defaultBlocksVertical, Encoding encoding)
+public IdenticonGenerator(string algorithm, Size size)
+public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundColor)
+public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundColor, Size defaultBlocks)
+public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundColor, Size defaultBlocks, Encoding encoding)
+public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundColor, Size defaultBlocks, Encoding encoding, IBlockGenerator[] blockgenerators)
+public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundColor, Size defaultBlocks, Encoding encoding, IBlockGenerator[] blockgenerators, IBrushGenerator brushgenerator)
 ````
 
 <sub>(Ofcourse, the `DefaultXXX` properties can be changed after instantiating an `IdenticonGenerator` as well)</sub>
 
-This allows you to specify defaults only once (using the ctor) or for each generated Identicon (passing parameters to the `Create()` methods.
+This allows you to specify defaults only once (using the ctor) or for each generated Identicon (passing parameters to the `Create()` methods. Adhering to the SOLID principle, it is possible to create your own "BlockGenerators" and "BrushGenerators" by simply implementing their interfaces `IBlockGenerator` and `IBrushGenerator`. This way you can influence the shapes and colors of the Identicon. There are a few defaults provided as static members of the `IdenticonGenerator` class; these are:
+
+* `DefaultBlockGeneratorsConfig` which only draws rectangles
+* `ExtendedBlockGeneratorsConfig` which draws different kinds of shapes (triangles, pie-parts, rectangles and rotated rectangles)
+* `DefaultBrushGeneratorConfig` whichs chooses a "random" (based on the input value to make the process deterministic) color.
+ 
+Some BlockGenerators and BrushGenerators are provided; the rest is up to you. The blockgenerators are associated with a `weight` so that you can influence the probability of a blockgenerator to be chosen when the `IdenticonGenerator` is selecting a blockgenerator for a specific block in the Identicon.
 
 #Notes
 
 1. Do note that the `Create()` method and its overloads all return a `Bitmap` object; you have to take care of storing it, sending it to the browser or whatever you need to do. Also note that you might want to `Dispose()` the returned Identicon when no longer needed.
 
-2. Also note that NIdenticon will round the image-dimensions DOWN to the nearest available size when the dimensions aren't exactly divisible by the horizontal/vertical blocks. Dimensions where width/horizontalblocks and height/verticalblocks are a multiple of oneanother work best (for example: for a width of 400 px you can use 2, 4, and 5 horizontal blocks but 6 will result in an image with a width of 396).
+2. Also note that NIdenticon will round the image-dimensions DOWN to the nearest available size when the dimensions aren't exactly divisible by the horizontal/vertical blocks. Dimensions where width/horizontalblocks and height/verticalblocks are a multiple of oneanother work best (for example: for a width of 400 px you can use 2, 4, and 8 horizontal blocks but 6 will result in an image with a width of 396). Also, since the Identicon is mirrored horizontally, an *even* number of horizontal blocks must be chosen.
 
 3. You might want to 'salt' your values (per Identicon (e.g. 'user' or 'account' for example) or per application, domain etc.) to make the Identicons even harder to 'reverse engineer'. A simple `myIDGenerator.Create(user.Email + user.Salt)` for example will do.
 
@@ -106,4 +123,4 @@ Result | Algorithm | Value | Blockgens | Background | Blocks | Brush
 ![](examples/ex22.png) | `SHA256` | `Identicon` | Extended | Transparent | 6x6 | Random
 ![](examples/ex23.png) | `SHA384` | `Identicon` | Custom<br>(Triangles only) | Transparent | 6x6 | Random
 ![](examples/ex24.png) | `SHA384` | `Identicon` | Custom<br>(Pie-slices only) | Transparent | 6x6 | Random
-![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br>(Triangle + Pie in 4:1) | Transparent | 6x6 | Statics
+![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br>(Triangle + Pie in 4:1) | Transparent | 6x6 | Static
