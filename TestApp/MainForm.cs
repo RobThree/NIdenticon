@@ -1,6 +1,6 @@
 ﻿using Devcorner.NIdenticon;
+using Devcorner.NIdenticon.BrushGenerators;
 using System;
-using System.Net;
 using System.Windows.Forms;
 
 namespace TestApp
@@ -24,7 +24,10 @@ namespace TestApp
                     (int)HeightBox.Value,
                     BackgroundColorBox.BackColor,
                     (int)HorizontalBox.Value,
-                    (int)VerticalBox.Value
+                    (int)VerticalBox.Value,
+                    g.DefaultEncoding,
+                    IdenticonGenerator.ExtendedBlockGeneratorsConfig,
+                    new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(ValueBox.Text))
                 );
             }
             catch (Exception ex)

@@ -42,6 +42,15 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlockGenerators\BlockGenerator.cs" />
+    <Compile Include="BlockGenerators\IBlockGenerator.cs" />
+    <Compile Include="BlockGenerators\PieGenerator.cs" />
+    <Compile Include="BlockGenerators\RectangeGenerator.cs" />
+    <Compile Include="BlockGenerators\RotatedRectangleGenerator.cs" />
+    <Compile Include="BlockGenerators\TriangleGenerator.cs" />
+    <Compile Include="BrushGenerators\IBrushGenerator.cs" />
+    <Compile Include="BrushGenerators\RandomColorBrushGenerator.cs" />
+    <Compile Include="BrushGenerators\StaticColorBrushGenerator.cs" />
     <Compile Include="IdenticonGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
