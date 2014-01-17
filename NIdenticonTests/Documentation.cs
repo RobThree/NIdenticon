@@ -143,8 +143,8 @@ namespace NIdenticonTests
                     .Create(f, new Size(90, 90), Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex21.png"), ImageFormat.Png);
 
-                doc.WriteLine("![](examples/ex22.png) | `SHA256` | `" + i + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
-                CreateGenString("SHA256", i, true, false)
+                doc.WriteLine("![](examples/ex22.png) | `SHA256` | `" + i + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Static");
+                CreateGenString("SHA256", i, true, true)
                     .Create(f, new Size(120, 120), Color.Transparent, b)
                     .Save(Path.Combine(outputpath, "ex22.png"), ImageFormat.Png);
 

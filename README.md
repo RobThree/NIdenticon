@@ -120,7 +120,7 @@ Result | Algorithm | Value | Blockgens | Background | Blocks | Brush
 ![](examples/ex19.png) | `MD5` | `foo_bar` | Default | Transparent | 4x6 | Static
 ![](examples/ex20.png) | `MD5` | `foo_bar` | Default | Transparent | 6x4 | Static
 ![](examples/ex21.png) | `SHA256` | `Identicon` | Extended | Transparent | 6x6 | Random
-![](examples/ex22.png) | `SHA256` | `Identicon` | Extended | Transparent | 6x6 | Random
+![](examples/ex22.png) | `SHA256` | `Identicon` | Extended | Transparent | 6x6 | Static
 ![](examples/ex23.png) | `SHA384` | `Identicon` | Custom<br>(Triangles only) | Transparent | 6x6 | Random
 ![](examples/ex24.png) | `SHA384` | `Identicon` | Custom<br>(Pie-slices only) | Transparent | 6x6 | Random
 ![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br>(Triangle + Pie in 4:1) | Transparent | 6x6 | Static
