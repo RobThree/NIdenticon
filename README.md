@@ -98,7 +98,7 @@ Below are some example images:
 
 Result | Algorithm | Value | Blockgens | Background | Blocks | Brush
 --- | --- | --- | --- | --- | --- | ---
-![](examples/ex00.png) | `MD5` | `Identicon` | Extended | White | 6x6 | Static
+![](examples/ex00.png) | `MD5` | `Identicon` | Default | White | 6x6 | Static
 ![](examples/ex01.png) | `MD5` | `Identicon` | Extended | White | 6x6 | Static
 ![](examples/ex02.png) | `SHA256` | `Identicon` | Extended | White | 6x6 | Static
 ![](examples/ex03.png) | `SHA512` | `Identicon` | Extended | White | 6x6 | Static
