@@ -33,7 +33,7 @@ namespace NIdenticonTests
                 doc.WriteLine("Result | Algorithm | Value | Blockgens | Background | Blocks | Brush");
                 doc.WriteLine("--- | --- | --- | --- | --- | --- | ---");
 
-                doc.WriteLine("![](examples/ex00.png) | `MD5` | `" + i + "` | Extended | White | " + b.Width + "x" + b.Height + " | Static");
+                doc.WriteLine("![](examples/ex00.png) | `MD5` | `" + i + "` | Default | White | " + b.Width + "x" + b.Height + " | Static");
                 CreateGenString("MD5", i, false, true)
                     .Create(i, s, Color.White, b)
                     .Save(Path.Combine(outputpath, "ex00.png"), ImageFormat.Png);
