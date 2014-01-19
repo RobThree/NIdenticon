@@ -1,7 +1,8 @@
-﻿<p>This is your Identicon for your IP:</p>
+﻿<h1>Using a controller:</h1>
+<p>This is your Identicon for your IP:</p>
 <p><img src="/nidenticon/" width="48" height="48" /></p>
 
-<p>This is an Identicon width specified size (24x24) for the text 'Lorem ipsum dolor]':</p>
+<p>This is an Identicon width specified size (24x24) for the text 'Lorem ipsum dolor':</p>
 <p><img src="/nidenticon/24/Lorem%20ipsum%20dolor" width="24" height="24" /></p>
 
 <p>This is an Identicon width specified size (96x96) for the text 'Identicon':</p>
@@ -9,3 +10,13 @@
 
 <p>This is an Identicon width specified size (72x72) for the text 'Foo':</p>
 <p><img src="/nidenticon/72/Foo" width="72" height="72" /></p>
+
+<h1>Using a HTMLHelper using <a href="https://en.wikipedia.org/wiki/Data_URI_scheme">data-uri's</a> and extended blockgenerators:</h1>
+<p>This is an Identicon width specified size (36x36) for the text 'Lorem ipsum dolor':</p>
+<p>@Html.GenerateIdenticon("Lorem ipsum dolor", 36)</p>
+
+<p>This is an Identicon width specified size (96x96) for the text 'Identicon':</p>
+<p>@Html.GenerateIdenticon("Identicon", 96)</p>
+
+<p>This is an Identicon width specified size (24x24) for the text 'Identicon' using a StaticColorBrushGenerator:</p>
+<p>@Html.GenerateIdenticon("Identicon", 96, true)</p>
