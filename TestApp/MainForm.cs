@@ -18,22 +18,13 @@ namespace TestApp
         {
             try
             {
-                var g = new IdenticonGenerator(AlgorithmBox.Text);
-                ResultBox.Image = g.Create(
-                    ValueBox.Text,
-                    new Size(
-                        (int)WidthBox.Value,
-                        (int)HeightBox.Value
-                    ),
-                    BackgroundColorBox.BackColor,
-                    new Size(
-                        (int)HorizontalBox.Value,
-                        (int)VerticalBox.Value
-                    ),
-                    g.DefaultEncoding,
-                    IdenticonGenerator.ExtendedBlockGeneratorsConfig,
-                    new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(ValueBox.Text))
-                );
+                ResultBox.Image = new IdenticonGenerator(AlgorithmBox.Text)
+                    .WithSize((int)WidthBox.Value, (int)HeightBox.Value)
+                    .WithBackgroundColor(BackgroundColorBox.BackColor)
+                    .WithBlocks((int)HorizontalBox.Value, (int)VerticalBox.Value)
+                    .WithBlockGenerators(IdenticonGenerator.ExtendedBlockGeneratorsConfig)
+                    .WithBrushGenerator(new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(ValueBox.Text)))
+                    .Create(ValueBox.Text);
             }
             catch (Exception ex)
             {

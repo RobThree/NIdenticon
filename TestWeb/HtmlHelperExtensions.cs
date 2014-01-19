@@ -1,7 +1,6 @@
 ﻿using Devcorner.NIdenticon;
 using Devcorner.NIdenticon.BrushGenerators;
 using System;
-using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Web;
@@ -13,11 +12,13 @@ namespace TestWeb
     {
         public static IHtmlString GenerateIdenticon(this HtmlHelper html, string value, int dimension, bool useStaticBrush = false)
         {
-            var i = new IdenticonGenerator();
-            i.DefaultBlockGenerators = IdenticonGenerator.ExtendedBlockGeneratorsConfig;
-            if (useStaticBrush)
-                i.DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(value));
-            using (var bitmap = i.Create(value, new Size(dimension, dimension)))
+            var i = new IdenticonGenerator()
+                .WithBlockGenerators(IdenticonGenerator.ExtendedBlockGeneratorsConfig)
+                .WithBrushGenerator(useStaticBrush ? 
+                    (IBrushGenerator)new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(value)) : new RandomColorBrushGenerator()
+                )
+                .WithSize(dimension, dimension);
+            using (var bitmap = i.Create(value))
             using (var stream = new MemoryStream())
             {
                 bitmap.Save(stream, ImageFormat.Png);
