@@ -74,7 +74,16 @@ public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundCo
 
 <sub>(Ofcourse, the `DefaultXXX` properties can be changed after instantiating an `IdenticonGenerator` as well)</sub>
 
-This allows you to specify defaults only once (using the ctor) or for each generated Identicon (passing parameters to the `Create()` methods. Adhering to the SOLID principle, it is possible to create your own "BlockGenerators" and "BrushGenerators" by simply implementing their interfaces `IBlockGenerator` and `IBrushGenerator`. This way you can influence the shapes and colors of the Identicon. There are a few defaults provided as static members of the `IdenticonGenerator` class; these are:
+This allows you to specify defaults only once (using the ctor) or for each generated Identicon (passing parameters to the `Create()` methods. Another approach is to use the fluent syntax to set only the desired defaults without having to specify all other parameters in the ctor:
+
+```c#
+var g = new IdenticonGenerator()
+        .WithSize(96,96)
+        .WithBlocks(6,6)
+        .WithBlockGenerators(IdenticonGenerator.ExtendedBlockGeneratorsConfig);
+````
+
+Adhering to the SOLID principle, it is possible to create your own "BlockGenerators" and "BrushGenerators" by simply implementing their interfaces `IBlockGenerator` and `IBrushGenerator`. This way you can influence the shapes and colors of the Identicon. There are a few defaults provided as static members of the `IdenticonGenerator` class; these are:
 
 * `DefaultBlockGeneratorsConfig` which only draws rectangles
 * `ExtendedBlockGeneratorsConfig` which draws different kinds of shapes (triangles, pie-parts, rectangles and rotated rectangles)
