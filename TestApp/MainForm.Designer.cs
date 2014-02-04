@@ -47,6 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.ColorGenBox = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ResultBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HorizontalBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.VerticalBox)).BeginInit();
@@ -60,10 +62,10 @@
             // 
             // CreateButton
             // 
-            this.CreateButton.Location = new System.Drawing.Point(215, 192);
+            this.CreateButton.Location = new System.Drawing.Point(216, 219);
             this.CreateButton.Name = "CreateButton";
             this.CreateButton.Size = new System.Drawing.Size(75, 23);
-            this.CreateButton.TabIndex = 7;
+            this.CreateButton.TabIndex = 9;
             this.CreateButton.Text = "Create";
             this.CreateButton.UseVisualStyleBackColor = true;
             this.CreateButton.Click += new System.EventHandler(this.CreateButton_Click);
@@ -80,10 +82,10 @@
             // 
             // ValueBox
             // 
-            this.ValueBox.Location = new System.Drawing.Point(90, 46);
+            this.ValueBox.Location = new System.Drawing.Point(101, 73);
             this.ValueBox.Name = "ValueBox";
-            this.ValueBox.Size = new System.Drawing.Size(195, 20);
-            this.ValueBox.TabIndex = 3;
+            this.ValueBox.Size = new System.Drawing.Size(185, 20);
+            this.ValueBox.TabIndex = 5;
             this.ValueBox.Text = "Identicon demo";
             // 
             // HorizontalBox
@@ -168,7 +170,7 @@
             // 
             this.BackgroundColorBox.BackColor = System.Drawing.Color.White;
             this.BackgroundColorBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.BackgroundColorBox.Location = new System.Drawing.Point(90, 72);
+            this.BackgroundColorBox.Location = new System.Drawing.Point(101, 99);
             this.BackgroundColorBox.Name = "BackgroundColorBox";
             this.BackgroundColorBox.Size = new System.Drawing.Size(25, 20);
             this.BackgroundColorBox.TabIndex = 401;
@@ -177,6 +179,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.ColorGenBox);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.AlgorithmBox);
             this.groupBox1.Controls.Add(this.label6);
@@ -188,7 +192,7 @@
             this.groupBox1.Controls.Add(this.ValueBox);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(300, 224);
+            this.groupBox1.Size = new System.Drawing.Size(300, 252);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Identicon";
@@ -221,18 +225,18 @@
             "SHA256",
             "SHA384",
             "SHA512"});
-            this.AlgorithmBox.Location = new System.Drawing.Point(90, 19);
+            this.AlgorithmBox.Location = new System.Drawing.Point(101, 19);
             this.AlgorithmBox.Name = "AlgorithmBox";
-            this.AlgorithmBox.Size = new System.Drawing.Size(195, 21);
+            this.AlgorithmBox.Size = new System.Drawing.Size(184, 21);
             this.AlgorithmBox.TabIndex = 1;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 75);
+            this.label6.Location = new System.Drawing.Point(16, 102);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
-            this.label6.TabIndex = 4;
+            this.label6.TabIndex = 6;
             this.label6.Text = "Background";
             // 
             // groupBox3
@@ -241,10 +245,10 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.VerticalBox);
             this.groupBox3.Controls.Add(this.HorizontalBox);
-            this.groupBox3.Location = new System.Drawing.Point(151, 112);
+            this.groupBox3.Location = new System.Drawing.Point(152, 139);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(139, 74);
-            this.groupBox3.TabIndex = 6;
+            this.groupBox3.TabIndex = 8;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Blocks";
             // 
@@ -272,10 +276,10 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.WidthBox);
             this.groupBox2.Controls.Add(this.HeightBox);
-            this.groupBox2.Location = new System.Drawing.Point(6, 112);
+            this.groupBox2.Location = new System.Drawing.Point(7, 139);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(139, 74);
-            this.groupBox2.TabIndex = 5;
+            this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Image dimensions";
             // 
@@ -300,11 +304,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 49);
+            this.label1.Location = new System.Drawing.Point(16, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 2;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Value";
+            // 
+            // ColorGenBox
+            // 
+            this.ColorGenBox.DisplayMember = "SHA256";
+            this.ColorGenBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ColorGenBox.FormattingEnabled = true;
+            this.ColorGenBox.Items.AddRange(new object[] {
+            "Random",
+            "Static"});
+            this.ColorGenBox.Location = new System.Drawing.Point(101, 46);
+            this.ColorGenBox.Name = "ColorGenBox";
+            this.ColorGenBox.Size = new System.Drawing.Size(184, 21);
+            this.ColorGenBox.TabIndex = 3;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 49);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(79, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Color generator";
             // 
             // MainForm
             // 
@@ -355,6 +381,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox AlgorithmBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox ColorGenBox;
     }
 }
 

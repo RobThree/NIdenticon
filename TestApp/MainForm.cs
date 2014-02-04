@@ -12,18 +12,20 @@ namespace TestApp
         {
             InitializeComponent();
             AlgorithmBox.SelectedItem = "SHA512";
+            ColorGenBox.SelectedItem = "Random";
         }
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
             try
             {
+                var bg = ColorGenBox.Text.Equals("Random") ? (IBrushGenerator)new RandomColorBrushGenerator() : new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(ValueBox.Text));
                 ResultBox.Image = new IdenticonGenerator(AlgorithmBox.Text)
                     .WithSize((int)WidthBox.Value, (int)HeightBox.Value)
                     .WithBackgroundColor(BackgroundColorBox.BackColor)
                     .WithBlocks((int)HorizontalBox.Value, (int)VerticalBox.Value)
                     .WithBlockGenerators(IdenticonGenerator.ExtendedBlockGeneratorsConfig)
-                    .WithBrushGenerator(new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(ValueBox.Text)))
+                    .WithBrushGenerator(bg)
                     .Create(ValueBox.Text);
             }
             catch (Exception ex)

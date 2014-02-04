@@ -3,7 +3,7 @@
   <metadata>
     <id>NIdenticon</id>
     <title>NIdenticon</title>
-    <version>1.2.0.0</version>
+    <version>1.2.1.0</version>
     <authors>RobIII</authors>
     <owners>RobIII</owners>
     <projectUrl>https://github.com/RobThree/NIdenticon</projectUrl>
@@ -14,7 +14,7 @@
       Provides classes and methods for creating Identicons.
     </summary>
     <releaseNotes>
-      * Added methods for "fluent-interface" (builder pattern) for easier construction of IdenticonGenerator.
+      * Uneven number of horizontal blocks is now possible again
     </releaseNotes>
     <tags>identicon</tags>
   </metadata>
