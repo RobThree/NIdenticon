@@ -4,6 +4,11 @@ namespace Devcorner.NIdenticon.BlockGenerators
 {
     public class TriangleGenerator : BlockGenerator
     {
+        public override bool IsSymmetric
+        {
+            get { return false; }
+        }
+
         public TriangleGenerator(int weight)
             : base(weight) { }
 

@@ -6,5 +6,6 @@ namespace Devcorner.NIdenticon.BlockGenerators
     {
         int Weight { get; }
         void Draw(Graphics g, Rectangle r, Brush bg, Brush fg, uint seed, bool fliphorizontal);
+        bool IsSymmetric { get; }
     }
 }

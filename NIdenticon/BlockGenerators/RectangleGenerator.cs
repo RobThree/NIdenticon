@@ -4,6 +4,11 @@ namespace Devcorner.NIdenticon.BlockGenerators
 {
     public class RectangleGenerator : BlockGenerator
     {
+        public override bool IsSymmetric
+        {
+            get { return true; }
+        }
+
         public RectangleGenerator(int weight)
             : base(weight) { }
 

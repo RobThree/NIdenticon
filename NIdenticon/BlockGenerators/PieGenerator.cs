@@ -4,6 +4,11 @@ namespace Devcorner.NIdenticon.BlockGenerators
 {
     public class PieGenerator : BlockGenerator
     {
+        public override bool IsSymmetric
+        {
+            get { return false; }
+        }
+
         public PieGenerator(int weight)
             : base(weight) { }
 

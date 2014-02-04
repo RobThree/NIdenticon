@@ -88,14 +88,9 @@
             // 
             // HorizontalBox
             // 
-            this.HorizontalBox.Increment = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
             this.HorizontalBox.Location = new System.Drawing.Point(81, 19);
             this.HorizontalBox.Minimum = new decimal(new int[] {
-            2,
+            1,
             0,
             0,
             0});
@@ -103,7 +98,7 @@
             this.HorizontalBox.Size = new System.Drawing.Size(50, 20);
             this.HorizontalBox.TabIndex = 1;
             this.HorizontalBox.Value = new decimal(new int[] {
-            6,
+            5,
             0,
             0,
             0});
@@ -120,7 +115,7 @@
             this.VerticalBox.Size = new System.Drawing.Size(50, 20);
             this.VerticalBox.TabIndex = 3;
             this.VerticalBox.Value = new decimal(new int[] {
-            6,
+            5,
             0,
             0,
             0});

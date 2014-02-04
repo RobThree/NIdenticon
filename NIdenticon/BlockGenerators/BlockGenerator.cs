@@ -5,6 +5,7 @@ namespace Devcorner.NIdenticon.BlockGenerators
     public abstract class BlockGenerator : IBlockGenerator
     {
         public int Weight { get; private set; }
+        public abstract bool IsSymmetric { get; }
 
         public BlockGenerator(int weight)
         {

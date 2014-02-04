@@ -95,7 +95,7 @@ Some BlockGenerators and BrushGenerators are provided; the rest is up to you. Th
 
 1. Do note that the `Create()` method and its overloads all return a `Bitmap` object; you have to take care of storing it, sending it to the browser or whatever you need to do. Also note that you might want to `Dispose()` the returned Identicon when no longer needed.
 
-2. Also note that NIdenticon will round the image-dimensions DOWN to the nearest available size when the dimensions aren't exactly divisible by the horizontal/vertical blocks. Dimensions where width/horizontalblocks and height/verticalblocks are a multiple of oneanother work best (for example: for a width of 400 px you can use 2, 4, and 8 horizontal blocks but 6 will result in an image with a width of 396). Also, since the Identicon is mirrored horizontally, an *even* number of horizontal blocks must be chosen.
+2. Also note that NIdenticon will round the image-dimensions DOWN to the nearest available size when the dimensions aren't exactly divisible by the horizontal/vertical blocks. Dimensions where width/horizontalblocks and height/verticalblocks are a multiple of oneanother work best (for example: for a width of 400 px you can use 2, 4, and 8 horizontal blocks but 6 will result in an image with a width of 396).
 
 3. You might want to 'salt' your values (per Identicon (e.g. 'user' or 'account' for example) or per application, domain etc.) to make the Identicons even harder to 'reverse engineer'. A simple `myIDGenerator.Create(user.Email + user.Salt)` for example will do.
 

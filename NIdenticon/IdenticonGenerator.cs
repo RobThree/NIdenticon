@@ -194,7 +194,7 @@ namespace Devcorner.NIdenticon
             if (ha == null)
                 throw new ArgumentOutOfRangeException(string.Format("Unknown algorithm '{0}'", algorithm));
 
-            if (blocks.Width < 2)
+            if (blocks.Width < 1)
                 throw new ArgumentOutOfRangeException("blockshorizontal");
             if (blocks.Height < 1)
                 throw new ArgumentOutOfRangeException("blocksvertical");
@@ -210,9 +210,6 @@ namespace Devcorner.NIdenticon
             if (blockGenerators.Any(b => b == null))
                 throw new ArgumentNullException("blockgenerators");
 
-            if (blocks.Width % 2 > 0)
-                throw new ArgumentOutOfRangeException("blockshorizontal must be even");
-
             size.Width -= size.Width % blocks.Width;
             size.Height -= size.Height % blocks.Height;
 
@@ -221,12 +218,18 @@ namespace Devcorner.NIdenticon
             if (size.Height <= 0)
                 throw new ArgumentOutOfRangeException("height after rounding to nearest value");
 
+            bool hasunevencols = blocks.Width % 2 != 0;
+            var allblockgens = blockGenerators.ToArray();
+            var symblockgens = blockGenerators.Where(sbg => sbg.IsSymmetric).ToArray();
+
+            if (hasunevencols && symblockgens.Length==0)
+                throw new Exception("At least one symmetrical blockgenerator required for identicons with uneven number of horizontal blocks");
+
             ha.Initialize();
             var hash = ha.ComputeHash(value);
             var blockwidth = (int)Math.Ceiling((double)size.Width / blocks.Width);
             var blockheight = (int)Math.Ceiling((double)size.Height / blocks.Height);
 
-            var totalweight = blockGenerators.Sum(w => w.Weight);
 
             var result = new Bitmap(size.Width, size.Height);
             using (var bgbrush = new SolidBrush(backgroundcolor))
@@ -235,33 +238,43 @@ namespace Devcorner.NIdenticon
                 gfx.FillRectangle(bgbrush, 0, 0, size.Width, size.Height);
 
                 var dhash = hash.Concat(hash).ToArray();
-                int hl = hash.Length;
+                int hashlen = hash.Length;
                 int i = 0;
-                var f = ((double)totalweight / 256);
-                for (var x = 0; x < blocks.Width / 2; x++)
+                int halfwidth = blocks.Width / 2;
+                for (var x = 0; x < (hasunevencols ? halfwidth+1 : halfwidth); x++)
                 {
                     for (var y = 0; y < blocks.Height; y++, i++)
                     {
-                        var r = hash[i % hl] * f;   //Determine "random" number from hash from 0 .. totalweight
-                        //Determine which generator to use
-                        int g = -1;
-                        while (r >= 0)
-                            r -= blockGenerators[++g].Weight;
-
-                        var seed = BitConverter.ToUInt32(dhash, i % hl);
+                        var blockgen = GetBlockGenerator((x == halfwidth && hasunevencols) ? symblockgens : allblockgens, hash[i % hashlen]);
+                        var seed = BitConverter.ToUInt32(dhash, i % hashlen);
 
                         using (var fgbrush = brushGenerator.GetBrush(seed))
                         {
                             Rectangle rl = new Rectangle(x * blockwidth, y * blockheight, blockwidth, blockheight);
-                            blockGenerators[g].Draw(gfx, rl, bgbrush, fgbrush, seed, false);
+                            blockgen.Draw(gfx, rl, bgbrush, fgbrush, seed, false);
 
-                            Rectangle rr = new Rectangle((size.Width - blockwidth) - (x * blockwidth), y * blockheight, blockwidth, blockheight);
-                            blockGenerators[g].Draw(gfx, rr, bgbrush, fgbrush, seed, true);
+                            if ((x != halfwidth) || ((x==halfwidth) && !hasunevencols))
+                            {
+                                Rectangle rr = new Rectangle((size.Width - blockwidth) - (x * blockwidth), y * blockheight, blockwidth, blockheight);
+                                blockgen.Draw(gfx, rr, bgbrush, fgbrush, seed, true);
+                            }
                         }
                     }
                 }
             }
             return result;
+        }
+
+        private IBlockGenerator GetBlockGenerator(IBlockGenerator[] generators, byte seed)
+        {
+            var totalweight = generators.Sum(w => w.Weight);
+            var f = ((double)totalweight / 256);
+            //Determine which generator to use
+            var r = seed * f;   //Determine "random" number from hash from 0 .. totalweight
+            int g = -1;
+            while (r >= 0)
+                r -= generators[++g].Weight;
+            return generators[g];
         }
 
         public IdenticonGenerator WithAlgorithm(string algorithm)

@@ -36,11 +36,11 @@ namespace NIdenticonTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException), "ArgumentOutOfRangeException should be thrown when blockshorizontal is less than 2")]
+        [ExpectedException(typeof(ArgumentOutOfRangeException), "ArgumentOutOfRangeException should be thrown when blockshorizontal is less than 1")]
         public void IdenticonGenerator_Throws_OnInvalidBlocksHorizontal()
         {
             var i = new IdenticonGenerator();
-            i.DefaultBlocks = new Size(1, 10);
+            i.DefaultBlocks = new Size(0, 10);
             i.Create("test");
         }
 
@@ -50,15 +50,6 @@ namespace NIdenticonTests
         {
             var i = new IdenticonGenerator();
             i.DefaultBlocks = new Size(10, 0);
-            i.Create("test");
-        }
-
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException), "ArgumentOutOfRangeException should be thrown when blockshorizontal is uneven")]
-        public void IdenticonGenerator_Throws_OnUnEvenHorizontalBlocks()
-        {
-            var i = new IdenticonGenerator();
-            i.DefaultBlocks = new Size(3, 10);
             i.Create("test");
         }
 
@@ -84,6 +75,17 @@ namespace NIdenticonTests
         {
             var i = new IdenticonGenerator();
             i.DefaultBlockGenerators = new IBlockGenerator[0];
+            i.Create("test");
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(Exception), "Exception should be thrown when an uneven horizontal number of blocks is specified and no symmetric blockgenerators are available")]
+        public void IdenticonGenerator_Throws_OnNoSymmetricBlockGeneratorsForUnevenHorizontalBlocks()
+        {
+            var i = new IdenticonGenerator().WithBlocks(5,5);
+            //Get all NON-symmetric blockgens
+            i.DefaultBlockGenerators = IdenticonGenerator.ExtendedBlockGeneratorsConfig.Where(bg => !bg.IsSymmetric).ToArray();
             i.Create("test");
         }
 
