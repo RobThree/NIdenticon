@@ -30,7 +30,7 @@ This creates an Identicon based on the IP-address of a remote host. The Identico
 
 * Dimensions (width, height **default**: 400, 400)
 * Number of blocks, or "pixels" (horizontal, vertical **default**: 6, 6)
-* Hash algorithm (**default**: `SHA5120`)
+* Hash algorithm (**default**: `SHA512`)
 * Background color (**default**: `Transparent`)
 * Even the default string-encoding used can be specified (**default**: UTF-8)
 
