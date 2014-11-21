@@ -134,4 +134,4 @@ Result | Algorithm | Value | Blockgens | Background | Blocks | Brush
 ![](examples/ex24.png) | `SHA384` | `Identicon` | Custom<br><sub>(Pie-slices only)</sub> | Transparent | 6x6 | Random
 ![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br><sub>(Rectangle + Pie in 4:1)</sub> | Transparent | 6x6 | Static
 
-[![Build status](https://ci.appveyor.com/api/projects/status/l77y1dgplt58k4ao)](https://ci.appveyor.com/project/RobIII/nidenticon)
+[![Build status](https://ci.appveyor.com/api/projects/status/l77y1dgplt58k4ao)](https://ci.appveyor.com/project/RobIII/nidenticon) <a href="https://www.nuget.org/packages/NIdenticon/"><img src="http://img.shields.io/nuget/v/NIdenticon.svg?style=flat-square" alt="NuGet version" height="18"></a> <a href="https://www.nuget.org/packages/NIdenticon/"><img src="http://img.shields.io/nuget/dt/NIdenticon.svg?style=flat-square" alt="NuGet version" height="18"></a>
