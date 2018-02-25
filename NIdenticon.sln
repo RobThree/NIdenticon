@@ -1,23 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NIdenticon", "NIdenticon\NIdenticon.csproj", "{5F3766D3-FF50-497F-83D0-75DAC0826F04}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{10A89D54-7886-4F66-9E2A-80506ED5F98D}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NIdenticon", "NIdenticon\NIdenticon.csproj", "{5F3766D3-FF50-497F-83D0-75DAC0826F04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestApp", "TestApp\TestApp.csproj", "{F68AE509-36A2-4B39-B80D-D210831B48B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9DD01E20-5015-4830-826F-BD8AB30E1F9C}"
 	ProjectSection(SolutionItems) = preProject
-		buildnugetpkg.cmd = buildnugetpkg.cmd
-		NIdenticon.nuspec = NIdenticon.nuspec
 		nidenticonlogo.ico = nidenticonlogo.ico
 		nidenticonlogo.png = nidenticonlogo.png
 		README.md = README.md
@@ -52,5 +43,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {089BA820-4D37-44E5-819D-6BDF872C9B74}
 	EndGlobalSection
 EndGlobal
