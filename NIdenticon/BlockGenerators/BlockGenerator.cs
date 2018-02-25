@@ -9,7 +9,7 @@ namespace Devcorner.NIdenticon.BlockGenerators
 
         public BlockGenerator(int weight)
         {
-            this.Weight = weight;
+            Weight = weight;
         }
 
         public abstract void Draw(Graphics g, Rectangle r, Brush bg, Brush fg, uint seed, bool fliphorizontal);

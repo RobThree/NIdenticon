@@ -68,86 +68,86 @@ namespace Devcorner.NIdenticon
 
         public IdenticonGenerator(string algorithm, Size size, Color defaultBackgroundColor, Size defaultBlocks, Encoding encoding, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator)
         {
-            this.DefaultAlgorithm = algorithm;
-            this.DefaultSize = size;
-            this.DefaultBackgroundColor = defaultBackgroundColor;
-            this.DefaultBlocks = defaultBlocks;
-            this.DefaultEncoding = encoding;
-            this.DefaultBlockGenerators = blockGenerators;
-            this.DefaultBrushGenerator = brushGenerator;
+            DefaultAlgorithm = algorithm;
+            DefaultSize = size;
+            DefaultBackgroundColor = defaultBackgroundColor;
+            DefaultBlocks = defaultBlocks;
+            DefaultEncoding = encoding;
+            DefaultBlockGenerators = blockGenerators;
+            DefaultBrushGenerator = brushGenerator;
         }
 
         public Bitmap Create(string value)
         {
-            return this.Create(value, this.DefaultSize);
+            return Create(value, DefaultSize);
         }
 
         public Bitmap Create(string value, Size size)
         {
-            return this.Create(value, size, this.DefaultBackgroundColor);
+            return Create(value, size, DefaultBackgroundColor);
         }
 
         public Bitmap Create(string value, Size size, Color backgroundcolor)
         {
-            return this.Create(value, size, backgroundcolor, this.DefaultBlocks);
+            return Create(value, size, backgroundcolor, DefaultBlocks);
         }
 
         public Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks)
         {
-            return this.Create(value, size, backgroundcolor, blocks, this.DefaultEncoding);
+            return Create(value, size, backgroundcolor, blocks, DefaultEncoding);
         }
 
         public Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding)
         {
-            return this.Create(value, size, backgroundcolor, blocks, encoding, this.DefaultBlockGenerators);
+            return Create(value, size, backgroundcolor, blocks, encoding, DefaultBlockGenerators);
         }
 
         public Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding, IBlockGenerator[] blockGenerators)
         {
-            return this.Create(value, size, backgroundcolor, blocks, encoding, blockGenerators, this.DefaultBrushGenerator);
+            return Create(value, size, backgroundcolor, blocks, encoding, blockGenerators, DefaultBrushGenerator);
         }
 
         public Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator)
         {
-            return this.Create(value, size, backgroundcolor, blocks, encoding, blockGenerators, brushGenerator, this.DefaultAlgorithm);
+            return Create(value, size, backgroundcolor, blocks, encoding, blockGenerators, brushGenerator, DefaultAlgorithm);
         }
 
         public Bitmap Create(string value, Size size, Color backgroundcolor, Size blocks, Encoding encoding, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator, string algorithm)
         {
-            if (this.DefaultEncoding == null)
+            if (DefaultEncoding == null)
                 throw new ArgumentNullException("encoding");
 
-            return this.Create(encoding.GetBytes(value ?? string.Empty), size, backgroundcolor, blocks, blockGenerators, brushGenerator);
+            return Create(encoding.GetBytes(value ?? string.Empty), size, backgroundcolor, blocks, blockGenerators, brushGenerator);
         }
 
         public Bitmap Create(IPAddress ipaddress)
         {
-            return this.Create(ipaddress, this.DefaultSize);
+            return Create(ipaddress, DefaultSize);
         }
 
         public Bitmap Create(IPAddress ipaddress, Size size)
         {
-            return this.Create(ipaddress, size, this.DefaultBackgroundColor);
+            return Create(ipaddress, size, DefaultBackgroundColor);
         }
 
         public Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor)
         {
-            return this.Create(ipaddress, size, backgroundcolor, this.DefaultBlocks);
+            return Create(ipaddress, size, backgroundcolor, DefaultBlocks);
         }
 
         public Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks)
         {
-            return this.Create(ipaddress, size, backgroundcolor, blocks, this.DefaultBlockGenerators);
+            return Create(ipaddress, size, backgroundcolor, blocks, DefaultBlockGenerators);
         }
 
         public Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators)
         {
-            return this.Create(ipaddress, size, backgroundcolor, blocks, blockGenerators, this.DefaultBrushGenerator);
+            return Create(ipaddress, size, backgroundcolor, blocks, blockGenerators, DefaultBrushGenerator);
         }
 
         public Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator)
         {
-            return this.Create(ipaddress, size, backgroundcolor, blocks, blockGenerators, brushGenerator, this.DefaultAlgorithm);
+            return Create(ipaddress, size, backgroundcolor, blocks, blockGenerators, brushGenerator, DefaultAlgorithm);
         }
 
         public Bitmap Create(IPAddress ipaddress, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator, string algorithm)
@@ -155,37 +155,37 @@ namespace Devcorner.NIdenticon
             if (ipaddress == null)
                 throw new ArgumentNullException("ipaddress");
 
-            return this.Create(ipaddress.GetAddressBytes(), size, backgroundcolor, blocks, blockGenerators, brushGenerator, algorithm);
+            return Create(ipaddress.GetAddressBytes(), size, backgroundcolor, blocks, blockGenerators, brushGenerator, algorithm);
         }
 
         public Bitmap Create(byte[] value)
         {
-            return this.Create(value, this.DefaultSize);
+            return Create(value, DefaultSize);
         }
 
         public Bitmap Create(byte[] value, Size size)
         {
-            return this.Create(value, size, this.DefaultBackgroundColor);
+            return Create(value, size, DefaultBackgroundColor);
         }
 
         public Bitmap Create(byte[] value, Size size, Color backgroundcolor)
         {
-            return this.Create(value, size, backgroundcolor, this.DefaultBlocks);
+            return Create(value, size, backgroundcolor, DefaultBlocks);
         }
 
         public Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks)
         {
-            return this.Create(value, size, backgroundcolor, blocks, this.DefaultBlockGenerators);
+            return Create(value, size, backgroundcolor, blocks, DefaultBlockGenerators);
         }
 
         public Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators)
         {
-            return this.Create(value, size, backgroundcolor, blocks, blockGenerators, this.DefaultBrushGenerator);
+            return Create(value, size, backgroundcolor, blocks, blockGenerators, DefaultBrushGenerator);
         }
 
         public Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator)
         {
-            return this.Create(value, size, backgroundcolor, blocks, blockGenerators, brushGenerator, this.DefaultAlgorithm);
+            return Create(value, size, backgroundcolor, blocks, blockGenerators, brushGenerator, DefaultAlgorithm);
         }
 
         public Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator, string algorithm)
@@ -279,53 +279,53 @@ namespace Devcorner.NIdenticon
 
         public IdenticonGenerator WithAlgorithm(string algorithm)
         {
-            this.DefaultAlgorithm = algorithm;
+            DefaultAlgorithm = algorithm;
             return this;
         }
 
         public IdenticonGenerator WithSize(int width, int height)
         {
-            return this.WithSize(new Size(width, height));
+            return WithSize(new Size(width, height));
         }
 
         public IdenticonGenerator WithSize(Size size)
         {
-            this.DefaultSize = size;
+            DefaultSize = size;
             return this;
         }
 
         public IdenticonGenerator WithBlocks(int horizontal, int vertical)
         {
-            return this.WithBlocks(new Size(horizontal, vertical));
+            return WithBlocks(new Size(horizontal, vertical));
         }
 
         public IdenticonGenerator WithBlocks(Size size)
         {
-            this.DefaultBlocks = size;
+            DefaultBlocks = size;
             return this;
         }
 
         public IdenticonGenerator WithEncoding(Encoding encoding)
         {
-            this.DefaultEncoding = encoding;
+            DefaultEncoding = encoding;
             return this;
         }
 
         public IdenticonGenerator WithBackgroundColor(Color color)
         {
-            this.DefaultBackgroundColor = color;
+            DefaultBackgroundColor = color;
             return this;
         }
 
         public IdenticonGenerator WithBlockGenerators(IBlockGenerator[] blockGenerators)
         {
-            this.DefaultBlockGenerators = blockGenerators;
+            DefaultBlockGenerators = blockGenerators;
             return this;
         }
 
         public IdenticonGenerator WithBrushGenerator(IBrushGenerator brushGenerator)
         {
-            this.DefaultBrushGenerator = brushGenerator;
+            DefaultBrushGenerator = brushGenerator;
             return this;
         }
     }
