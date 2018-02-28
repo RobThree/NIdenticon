@@ -87,7 +87,7 @@ Adhering to the SOLID principle, it is possible to create your own "BlockGenerat
 
 * `DefaultBlockGeneratorsConfig` which only draws rectangles
 * `ExtendedBlockGeneratorsConfig` which draws different kinds of shapes (triangles, pie-parts, rectangles and rotated rectangles)
-* `DefaultBrushGeneratorConfig` whichs chooses a "random" (based on the input value to make the process deterministic) color.
+* `DefaultBrushGeneratorConfig` which chooses a "random" (based on the input value to make the process deterministic) color.
  
 Some BlockGenerators and BrushGenerators are provided; the rest is up to you. The blockgenerators are associated with a `weight` so that you can influence the probability of a blockgenerator to be chosen when the `IdenticonGenerator` is selecting a blockgenerator for a specific block in the Identicon.
 
