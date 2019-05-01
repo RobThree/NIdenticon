@@ -190,7 +190,7 @@ namespace Devcorner.NIdenticon
 
         public Bitmap Create(byte[] value, Size size, Color backgroundcolor, Size blocks, IBlockGenerator[] blockGenerators, IBrushGenerator brushGenerator, string algorithm)
         {
-            var ha = HashAlgorithm.Create(algorithm);
+            var ha = (HashAlgorithm)CryptoConfig.CreateFromName(algorithm);
             if (ha == null)
                 throw new ArgumentOutOfRangeException(string.Format("Unknown algorithm '{0}'", algorithm));
 
