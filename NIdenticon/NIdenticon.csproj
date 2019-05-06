@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net45;net451;net452;net46;net461;net462;net47;net471;netstandard2.0;netcoreapp2.0</TargetFrameworks>
+    <TargetFrameworks>net45;netstandard2.0;netcoreapp2.0</TargetFrameworks>
     <Authors>RobIII</Authors>
     <Company>RobIII</Company>
     <PackageId>NIdenticon</PackageId>
@@ -22,39 +22,15 @@
     <DefineConstants>TRACE;RELEASE;NETSTANDARD2_0</DefineConstants>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.0-preview1-25914-04</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.0-preview1-25914-04</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net462'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.0-preview1-25914-04</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net47'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.0-preview1-25914-04</Version>
-    </PackageReference>
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net471'">
-    <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.0-preview1-25914-04</Version>
-    </PackageReference>
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
     <PackageReference Include="System.Drawing.Common">
-      <Version>4.5.0-preview1-25914-04</Version>
+      <Version>4.5.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+    <PackageReference Include="System.Drawing.Common">
+      <Version>4.5.1</Version>
     </PackageReference>
   </ItemGroup>
 </Project>
