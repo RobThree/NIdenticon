@@ -134,4 +134,12 @@ Result | Algorithm | Value | Blockgens | Background | Blocks | Brush
 ![](examples/ex24.png) | `SHA384` | `Identicon` | Custom<br><sub>(Pie-slices only)</sub> | Transparent | 6x6 | Random
 ![](examples/ex25.png) | `SHA384` | `Identicon` | Custom<br><sub>(Rectangle + Pie in 4:1)</sub> | Transparent | 6x6 | Static
 
+# Assembly Strong Naming & Usage in Signed Applications
+
+This module produces strong named assemblies when compiled. When consumers of this package require strongly named assemblies, for example when they
+themselves are signed, the outputs should work as-is.
+The key file to create the strong name is adjacent to the `csproj` file in the root of the source project. Please note that this does not increase
+security or provide tamper-proof binaries, as the key is available in the source code per 
+[Microsoft guidelines](https://msdn.microsoft.com/en-us/library/wd40t7ad(v=vs.110).aspx)
+
 [![Build status](https://ci.appveyor.com/api/projects/status/l77y1dgplt58k4ao)](https://ci.appveyor.com/project/RobIII/nidenticon) <a href="https://www.nuget.org/packages/NIdenticon/"><img src="http://img.shields.io/nuget/v/NIdenticon.svg?style=flat-square" alt="NuGet version" height="18"></a>
