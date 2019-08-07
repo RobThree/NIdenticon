@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard2.0;netcoreapp2.0</TargetFrameworks>
@@ -12,10 +12,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/RobThree/NIdenticon</PackageProjectUrl>
     <PackageTags>identicon</PackageTags>
-    <PackageReleaseNotes>* Fixed .Net Core support</PackageReleaseNotes>
+    <PackageReleaseNotes>* The assemblies are now created with a strong name</PackageReleaseNotes>
     <Description>NIdenticon is a library for creating simple Identicons.</Description>
     <PackageIconUrl>http://riii.nl/nidenticonlogo</PackageIconUrl>
-    <Version>1.3.1</Version>
+    <Version>1.4.0</Version>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>NIdenticon.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
