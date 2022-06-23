@@ -1,7 +1,6 @@
-﻿using Devcorner.NIdenticon;
-using Devcorner.NIdenticon.BrushGenerators;
+﻿using NIdenticon;
+using NIdenticon.BrushGenerators;
 using System;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace TestApp
@@ -41,7 +40,9 @@ namespace TestApp
                 c.Color = BackgroundColorBox.BackColor;
                 c.FullOpen = true;
                 if (c.ShowDialog() == DialogResult.OK)
+                {
                     BackgroundColorBox.BackColor = c.Color;
+                }
             }
         }
     }
