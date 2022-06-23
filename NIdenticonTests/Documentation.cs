@@ -58,13 +58,6 @@ public class Documentation
             .Create(n, s, Color.Transparent, b)
             .Save(Path.Combine(outputpath, "ex04.png"), ImageFormat.Png);
 
-#if !NETCORE
-        doc.WriteLine("![](examples/ex05.png) | `RipeMD160` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
-        CreateGenString("RipeMD160", n, true, false)
-            .Create(n, s, Color.Transparent, b)
-            .Save(Path.Combine(outputpath, "ex05.png"), ImageFormat.Png);
-#endif
-
         doc.WriteLine("![](examples/ex06.png) | `SHA1` | `" + n + "` | Extended | Transparent | " + b.Width + "x" + b.Height + " | Random");
         CreateGenString("SHA1", n, true, false)
             .Create(n, s, Color.Transparent, b)
