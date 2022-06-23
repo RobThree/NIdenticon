@@ -1,9 +1,8 @@
 ﻿using System.Drawing;
 
-namespace Devcorner.NIdenticon.BrushGenerators
+namespace NIdenticon.BrushGenerators;
+
+public interface IBrushGenerator
 {
-    public interface IBrushGenerator
-    {
-        Brush GetBrush(uint seed);
-    }
+    Brush GetBrush(uint seed);
 }

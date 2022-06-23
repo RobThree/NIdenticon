@@ -1,21 +1,19 @@
 ﻿using System.Drawing;
 
-namespace Devcorner.NIdenticon.BlockGenerators
+namespace NIdenticon.BlockGenerators;
+
+public class RectangleGenerator : BlockGenerator
 {
-    public class RectangleGenerator : BlockGenerator
+    public override bool IsSymmetric => true;
+
+    public RectangleGenerator(int weight)
+        : base(weight) { }
+
+    public override void Draw(Graphics g, Rectangle r, Brush bg, Brush fg, uint seed, bool fliphorizontal)
     {
-        public override bool IsSymmetric
+        if (seed % 2 == 0)
         {
-            get { return true; }
-        }
-
-        public RectangleGenerator(int weight)
-            : base(weight) { }
-
-        public override void Draw(Graphics g, Rectangle r, Brush bg, Brush fg, uint seed, bool fliphorizontal)
-        {
-            if (seed % 2 == 0)
-                g.FillRectangle(fg, r);
+            g.FillRectangle(fg, r);
         }
     }
 }

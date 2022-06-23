@@ -1,15 +1,14 @@
 ﻿using System.Drawing;
 
-namespace Devcorner.NIdenticon.BrushGenerators
+namespace NIdenticon.BrushGenerators;
+
+public class RandomColorBrushGenerator : IBrushGenerator
 {
-    public class RandomColorBrushGenerator : IBrushGenerator
+    public Brush GetBrush(uint seed)
     {
-        public Brush GetBrush(uint seed)
+        unchecked
         {
-            unchecked
-            {
-                return new SolidBrush(Color.FromArgb(255, Color.FromArgb((int)seed)));
-            }
+            return new SolidBrush(Color.FromArgb(255, Color.FromArgb((int)seed)));
         }
     }
 }
