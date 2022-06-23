@@ -1,10 +1,8 @@
-﻿using Devcorner.NIdenticon;
-using Devcorner.NIdenticon.BrushGenerators;
+﻿using NIdenticon;
+using NIdenticon.BrushGenerators;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Net;
-using System.Web;
 using System.Web.Mvc;
 
 namespace TestWeb.Controllers
@@ -15,8 +13,10 @@ namespace TestWeb.Controllers
         public ActionResult Index(int dimension, string text)
         {
             text = text ?? HttpContext.Request.UserHostAddress;
-            var ic = new IdenticonGenerator();
-            ic.DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(text));
+            var ic = new IdenticonGenerator
+            {
+                DefaultBrushGenerator = new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(text))
+            };
             var bitmap = ic.Create(text, new Size(dimension, dimension));
 
             var ms = new MemoryStream();

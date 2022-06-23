@@ -1,5 +1,5 @@
-﻿using Devcorner.NIdenticon;
-using Devcorner.NIdenticon.BrushGenerators;
+﻿using NIdenticon;
+using NIdenticon.BrushGenerators;
 using System;
 using System.Drawing.Imaging;
 using System.IO;
@@ -14,7 +14,7 @@ namespace TestWeb
         {
             var i = new IdenticonGenerator()
                 .WithBlockGenerators(IdenticonGenerator.ExtendedBlockGeneratorsConfig)
-                .WithBrushGenerator(useStaticBrush ? 
+                .WithBrushGenerator(useStaticBrush ?
                     (IBrushGenerator)new StaticColorBrushGenerator(StaticColorBrushGenerator.ColorFromText(value)) : new RandomColorBrushGenerator()
                 )
                 .WithSize(dimension, dimension);
@@ -26,8 +26,7 @@ namespace TestWeb
                 var img = new TagBuilder("img");
                 img.Attributes.Add("width", bitmap.Width.ToString());
                 img.Attributes.Add("height", bitmap.Height.ToString());
-                img.Attributes.Add("src", String.Format("data:image/png;base64,{0}",
-                    Convert.ToBase64String(stream.ToArray())));
+                img.Attributes.Add("src", string.Format("data:image/png;base64,{0}", Convert.ToBase64String(stream.ToArray())));
 
                 return MvcHtmlString.Create(img.ToString(TagRenderMode.SelfClosing));
             }
