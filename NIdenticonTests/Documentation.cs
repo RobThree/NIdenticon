@@ -1,6 +1,17 @@
-﻿namespace NIdenticonTests;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NIdenticon;
+using NIdenticon.BlockGenerators;
+using NIdenticon.BrushGenerators;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Net;
+using System.Text;
 
-#if WINDOWS
+namespace NIdenticonTests;
+
+#if Windows
+#pragma warning disable CA1416 // Validate platform compatibility
 [TestClass]
 public class Documentation
 {
@@ -187,4 +198,5 @@ public class Documentation
         return g;
     }
 }
+#pragma warning restore CA1416 // Validate platform compatibility
 #endif
