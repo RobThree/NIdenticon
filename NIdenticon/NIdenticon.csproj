@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
 		<Authors>RobIII</Authors>
 		<Company>RobIII</Company>
 		<PackageId>NIdenticon</PackageId>
@@ -12,10 +12,10 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/RobThree/NIdenticon</PackageProjectUrl>
 		<PackageTags>identicon</PackageTags>
-		<PackageReleaseNotes>* The assemblies are now created with a strong name</PackageReleaseNotes>
+		<PackageReleaseNotes>Use latest version of System.Drawing.Common vulnerability (CVE-2021-24112)</PackageReleaseNotes>
 		<Description>NIdenticon is a library for creating simple Identicons.</Description>
 		<PackageIconUrl>http://riii.nl/nidenticonlogo</PackageIconUrl>
-		<Version>1.4.0</Version>
+		<Version>1.5.0</Version>
 		<SignAssembly>true</SignAssembly>
 		<AssemblyOriginatorKeyFile>NIdenticon.snk</AssemblyOriginatorKeyFile>
 		<LangVersion>latest</LangVersion>
@@ -25,18 +25,6 @@
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
 		<DefineConstants>TRACE;RELEASE;NETSTANDARD2_0</DefineConstants>
 	</PropertyGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Drawing.Common">
-			<Version>4.5.1</Version>
-		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
-		<PackageReference Include="System.Drawing.Common">
-			<Version>4.5.1</Version>
-		</PackageReference>
-	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="6.0.0">
